@@ -30,9 +30,11 @@ twitter_username: stankydanko
 github_username:  stankydanko
 
 # Build settings
-theme: minima
+theme: jekyll-theme-hacker
+remote_theme: pages-themes/hacker@v0.2.0
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
 
 firebase:
   apiKey: AIzaSyBXaY6hn6NDJI6WEy1mvtGRXl6V5_W7HJs
