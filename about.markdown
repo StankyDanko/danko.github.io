@@ -1,18 +1,17 @@
 ---
 layout: default
-title: About
+title: About the Dankmire
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+## 🌿 Welcome to the Dankmire  
+Yo, you’ve just stepped into the DANKMIRE, a wild digital swamp where code flows like rivers and creativity grows like dank weeds. I’m Danko, the master of this realm—a [your profession or passion, e.g., "code wizard", "pixel alchemist", "chaos curator"]. This ain’t your average portfolio; it’s a living, breathing hub of projects, rants, and experiments straight from the murky depths of my mind.  
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Expect to find [what visitors can explore, e.g., "glitchy art", "coding experiments", "thoughts on the universe"], all served with a side of grit and a sprinkle of cosmic dust. Dive in, get lost, and vibe with the chaos. The Dankmire’s got secrets waiting for you.  
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+## 🌌 Stalk Me  
+- Hit me up on [Twitter/X](https://twitter.com/stankydanko) for the latest dank drops.  
+- Peep my [GitHub](https://github.com/stankydanko) for the raw code sauce.  
+- [Add another link, e.g., "Portfolio" or "Blog"]—you know where to find me.  
 
-
-[jekyll-organization]: https://github.com/jekyll
+Stay dank, fam! 🌱✨
