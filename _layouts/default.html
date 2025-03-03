@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <!-- Firebase SDK Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <!-- FirebaseUI for easy authentication UI -->
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+</head>
+<body>
+    <!-- Your site's main content -->
+    {{ content }}
+
+    <!-- FirebaseUI Authentication Container -->
+    <div id="firebaseui-auth-container"></div>
+
+    <!-- Optional: Protected content (visible only to logged-in users) -->
+    <div id="protected-content" style="display: none;">
+        Welcome, logged-in user!
+    </div>
+
+    <!-- Optional: Sign-out button -->
+    <button id="sign-out" style="display: none;">Sign Out</button>
+
+    <script>
+        // Load Firebase configuration from _config.yml
+        const firebaseConfig = {
+            apiKey: "{{ site.firebase.apiKey }}",
+            authDomain: "{{ site.firebase.authDomain }}",
+            projectId: "{{ site.firebase.projectId }}",
+            storageBucket: "{{ site.firebase.storageBucket }}",
+            messagingSenderId: "{{ site.firebase.messagingSenderId }}",
+            appId: "{{ site.firebase.appId }}"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Initialize FirebaseUI for authentication
+        const ui = new firebaseui.auth.AuthUI(firebase.auth());
+        ui.start('#firebaseui-auth-container', {
+            signInOptions: [
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                firebase.auth.TwitterAuthProvider.PROVIDER_ID  // Assuming "X" is Twitter; adjust if different
+            ],
+            // Optional: Add URLs if you have terms of service or privacy policy pages
+            // tosUrl: 'https://example.com/terms',
+            // privacyPolicyUrl: 'https://example.com/privacy'
+        });
+
+        // Handle authentication state changes
+        firebase.auth().onAuthStateChanged(user => {
+            const protectedContent = document.getElementById('protected-content');
+            const signOutButton = document.getElementById('sign-out');
+            if (user) {
+                console.log('User signed in:', user);
+                if (protectedContent) protectedContent.style.display = 'block';
+                if (signOutButton) signOutButton.style.display = 'block';
+            } else {
+                console.log('User signed out');
+                if (protectedContent) protectedContent.style.display = 'none';
+                if (signOutButton) signOutButton.style.display = 'none';
+            }
+        });
+
+        // Sign-out button handler
+        document.getElementById('sign-out').addEventListener('click', () => {
+            firebase.auth().signOut().catch(error => console.error('Sign-out error:', error));
+        });
+    </script>
+</body>
+</html>
